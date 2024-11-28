@@ -9,13 +9,14 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import CharacterSelection from "@/components/character-selection";
 import { toast } from "sonner";
+import { Mode } from "@/lib/characters";
 
 export default function StartGame() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const mode = searchParams.get("mode");
+  const mode = (searchParams.get("mode") as Mode) || "defaultMode";
   const [turns, setTurns] = useState(10);
-  const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [selectedCharacter, setSelectedCharacter] = useState<{ id: string } | null>(null);
 
   const handleStart = () => {
     if (selectedCharacter) {
