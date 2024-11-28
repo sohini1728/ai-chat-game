@@ -1,61 +1,105 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
-import { useChat } from 'ai/react'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
+import { useState, useEffect, useRef } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { useChat } from "ai/react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { toast } from "sonner";
+import { characters } from "@/lib/characters";
 
 export default function ChatScreen() {
-  const searchParams = useSearchParams()
-  const mode = searchParams.get('mode')
-  const characterId = searchParams.get('character')
-  const totalTurns = parseInt(searchParams.get('turns') || '10')
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const mode = searchParams.get("mode");
+  const characterId = searchParams.get("character");
+  const totalTurns = parseInt(searchParams.get("turns") || "10");
 
-  const [character, setCharacter] = useState(null)
-  const [friendliness, setFriendliness] = useState(0)
-  const [currentTurn, setCurrentTurn] = useState(0)
+  const [character, setCharacter] = useState(null);
+  const [friendliness, setFriendliness] = useState(0);
+  const [currentTurn, setCurrentTurn] = useState(0);
+  const messagesEndRef = useRef(null);
 
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
-    api: '/api/chat',
-    body: { mode, characterId, friendliness },
-    onResponse: (response) => {
-      const data = JSON.parse(response)
-      setFriendliness(data.newFriendliness)
-      setCurrentTurn(currentTurn + 1)
-    },
-  })
+  const { messages, input, handleInputChange, handleSubmit, isLoading } =
+    useChat({
+      api: "/api/chat",
+      body: { mode, characterId, friendliness },
+      onResponse: (response) => {
+        const data = JSON.parse(response);
+        setFriendliness(data.newFriendliness);
+        setCurrentTurn((prev) => {
+          const newTurn = prev + 1;
+          if (newTurn >= totalTurns) {
+            toast({
+              title: "Game Over",
+              description: `Final friendliness: ${data.newFriendliness}`,
+            });
+            setTimeout(() => router.push("/"), 5000);
+          }
+          return newTurn;
+        });
+      },
+    });
 
   useEffect(() => {
-    // Fetch character details
-    const fetchCharacter = async () => {
-      const res = await fetch(`/api/characters/${characterId}`)
-      const data = await res.json()
-      setCharacter(data)
-    }
-    fetchCharacter()
-  }, [characterId])
+    const selectedCharacter = characters[mode].find(
+      (c) => c.id === characterId
+    );
+    setCharacter(selectedCharacter);
+  }, [mode, characterId]);
 
-  const friendlinessColor = friendliness < 0 ? 'bg-red-500' : 'bg-green-500'
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const friendlinessColor = friendliness < 0 ? "bg-red-500" : "bg-green-500";
 
   return (
-    <div className="container mx-auto p-4 flex h-screen">
-      <div className="w-3/4 pr-4">
+    <div className="container mx-auto p-4 flex flex-col md:flex-row h-screen">
+      <div className="w-full md:w-3/4 pr-0 md:pr-4 mb-4 md:mb-0">
         <div className="h-[calc(100vh-200px)] overflow-y-auto mb-4 bg-accent rounded-lg p-4">
-          {messages.map((message, index) => (
-            <div key={index} className={`mb-4 ${message.role === 'user' ? 'text-right' : 'text-left'}`}>
-              <div className={`inline-block p-2 rounded-lg ${message.role === 'user' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'}`}>
-                {message.content}
-              </div>
-              {message.role === 'assistant' && message.friendlinessChange && (
-                <div className="text-sm text-muted-foreground mt-1">
-                  Friendliness change: {message.friendlinessChange > 0 ? '+' : ''}{message.friendlinessChange}
+          <AnimatePresence>
+            {messages.map((message, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className={`mb-4 ${
+                  message.role === "user" ? "text-right" : "text-left"
+                }`}
+              >
+                <div
+                  className={`inline-block p-2 rounded-lg ${
+                    message.role === "user"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary text-secondary-foreground"
+                  }`}
+                >
+                  {message.content}
                 </div>
-              )}
-            </div>
-          ))}
+                {message.role === "assistant" && message.friendlinessChange && (
+                  <div className="text-sm text-muted-foreground mt-1">
+                    Friendliness change:{" "}
+                    {message.friendlinessChange > 0 ? "+" : ""}
+                    {message.friendlinessChange}
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+          <div ref={messagesEndRef} />
         </div>
         <form onSubmit={handleSubmit} className="flex gap-2">
           <Input
@@ -64,35 +108,56 @@ export default function ChatScreen() {
             placeholder="Type your message..."
             disabled={isLoading || currentTurn >= totalTurns}
           />
-          <Button type="submit" disabled={isLoading || currentTurn >= totalTurns}>
+          <Button
+            type="submit"
+            disabled={isLoading || currentTurn >= totalTurns}
+          >
             Send
           </Button>
         </form>
       </div>
-      <div className="w-1/4">
+      <div className="w-full md:w-1/4">
         {character && (
-          <Card>
+          <Card className="h-full flex flex-col">
             <CardHeader>
-              <CardTitle>{character.name}</CardTitle>
+              <CardTitle className="flex items-center text-2xl">
+                <span className="text-4xl mr-2">{character.emoji}</span>
+                {character.name}
+              </CardTitle>
               <CardDescription>{character.description}</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-grow">
               <h3 className="font-bold mb-2">Friendliness</h3>
-              <Progress
-                value={Math.abs(friendliness)}
-                max={100}
-                className={friendlinessColor}
-              />
-              <p className="mt-2">
+              <motion.div
+                initial={{ width: "0%" }}
+                animate={{ width: `${Math.abs(friendliness)}%` }}
+                transition={{ duration: 0.5 }}
+              >
+                <Progress
+                  value={Math.abs(friendliness)}
+                  max={100}
+                  className={friendlinessColor}
+                />
+              </motion.div>
+              <p className="mt-2 text-lg font-semibold">
                 {friendliness < 0 ? friendliness : `+${friendliness}`} / 100
               </p>
-              <h3 className="font-bold mt-4 mb-2">Turns</h3>
-              <p>{currentTurn} / {totalTurns}</p>
             </CardContent>
+            <CardFooter>
+              <div className="w-full">
+                <h3 className="font-bold mb-2">Game Progress</h3>
+                <Progress
+                  value={(currentTurn / totalTurns) * 100}
+                  className="mb-2"
+                />
+                <p className="text-center text-lg font-semibold">
+                  Turn {currentTurn} / {totalTurns}
+                </p>
+              </div>
+            </CardFooter>
           </Card>
         )}
       </div>
     </div>
-  )
+  );
 }
-
