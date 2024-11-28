@@ -8,12 +8,20 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { characters } from "@/lib/characters";
+import { characters, Character, Mode } from "@/lib/characters";
 
-export default function CharacterSelection({ mode, onSelect }) {
-  const [selectedId, setSelectedId] = useState(null);
+interface CharacterSelectionProps {
+  mode: Mode;
+  onSelect: (character: Character) => void;
+}
 
-  const handleSelect = (character) => {
+export default function CharacterSelection({
+  mode,
+  onSelect,
+}: CharacterSelectionProps) {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  const handleSelect = (character: Character) => {
     setSelectedId(character.id);
     onSelect(character);
   };

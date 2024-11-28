@@ -8,7 +8,7 @@ const characters = {
 }
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
-  const character = characters[params.id]
+  const character = characters[params.id as keyof typeof characters];
   
   if (character) {
     return NextResponse.json(character)
