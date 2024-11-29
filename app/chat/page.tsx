@@ -35,17 +35,39 @@ export default function ChatScreen() {
   const [currentTurn, setCurrentTurn] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { messages, input, handleInputChange, handleSubmit, isLoading } =
-    useChat({
-      api: "/api/chat",
-      body: { mode, characterId, friendliness },
-      onResponse: async (response) => {
-        const data = await response.json();
-        const { friendlinessChange } = data;
+  const {
+    messages,
+    input,
+    handleInputChange,
+    handleSubmit,
+    isLoading,
+    setMessages,
+  } = useChat({
+    api: "/api/chat",
+    body: {
+      mode,
+      characterId,
+      friendliness,
+      totalTurns,
+    },
+    onResponse: async (response) => {
+      const json = await response.json();
+      if (json.message && typeof json.friendlinessChange === "number") {
+        // Manually add the AI response message
+        setMessages((currentMessages) => [
+          ...currentMessages,
+          {
+            id: Date.now().toString(),
+            role: "assistant",
+            content: json.message,
+            friendlinessChange: json.friendlinessChange,
+          },
+        ]);
+
         setFriendliness((prev) => {
           const newFriendliness = Math.max(
             -100,
-            Math.min(100, prev + friendlinessChange)
+            Math.min(100, prev + json.friendlinessChange)
           );
           if (currentTurn + 1 >= totalTurns) {
             toast.success(`Final friendliness: ${newFriendliness}`);
@@ -54,8 +76,9 @@ export default function ChatScreen() {
           return newFriendliness;
         });
         setCurrentTurn((prev) => prev + 1);
-      },
-    });
+      }
+    },
+  });
 
   useEffect(() => {
     if (mode) {
