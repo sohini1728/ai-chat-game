@@ -127,8 +127,7 @@ export default function ChatScreen() {
                       {(message as ExtendedMessage).friendlinessChange !==
                         undefined && (
                         <>
-                          {(message as ExtendedMessage).friendlinessChange ??
-                          0 > 0
+                          {((message as ExtendedMessage).friendlinessChange ?? 0) > 0
                             ? "+"
                             : ""}
                           {(message as ExtendedMessage).friendlinessChange}
