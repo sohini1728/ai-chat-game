@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   const character = characters[mode as Mode].find((c) => c.id === characterId);
 
   const result = await streamText({
-    model: openai("gpt-3.5-turbo"),
+    model: openai("gpt-4o-mini"),
     messages: [
       {
         role: "system",

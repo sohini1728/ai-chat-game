@@ -22,7 +22,7 @@ dependencies:
     version: 1.1.0(@types/react@18.3.12)(react@18.3.1)
   ai:
     specifier: ^4.0.7
-    version: 4.0.7(react@18.3.1)(zod@3.23.8)
+    version: 4.0.9(react@18.3.1)(zod@3.23.8)
   class-variance-authority:
     specifier: ^0.7.1
     version: 0.7.1
@@ -861,8 +861,8 @@ packages:
       humanize-ms: 1.2.1
     dev: false
 
-  /ai@4.0.7(react@18.3.1)(zod@3.23.8):
-    resolution: {integrity: sha512-8KWAHZbL2xwQwFqLX/3Cb9+r2xyu0acgYK2xii/kW6l5fl6Bq7Zng+jU7DF7lxNU3M9rf29Gkc0oVrTzkRVJjw==}
+  /ai@4.0.9(react@18.3.1)(zod@3.23.8):
+    resolution: {integrity: sha512-25Ve05XJYjlV2os//J2WVITm8GXRRGgt9Y5vQyxnJJ6P4ttyH585Uc1fbOTh5tK1CEXTfn+Ml+Ux7oR9J8hImA==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
