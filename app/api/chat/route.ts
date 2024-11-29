@@ -20,7 +20,6 @@ export async function POST(req: Request) {
 
   const character = characters[mode as Mode].find((c) => c.id === characterId);
 
-  //@ts-expect-error: known issue for "Type instantiation is excessively deep and possibly infinite."
   const result = await generateObject({
     model: openai("gpt-4o-mini"),
     schema: responseSchema,
