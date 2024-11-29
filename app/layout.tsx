@@ -18,10 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} min-h-screen bg-gradient-to-b from-background to-background/80 antialiased`}
+      >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <Toaster />
-          <Suspense fallback={null}>{children}</Suspense>
+          <main className="relative flex min-h-screen flex-col">
+            <Toaster position="top-center" />
+            <Suspense fallback={null}>{children}</Suspense>
+          </main>
         </ThemeProvider>
       </body>
     </html>

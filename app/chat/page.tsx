@@ -96,9 +96,9 @@ export default function ChatScreen() {
   const friendlinessColor = friendliness < 0 ? "bg-red-500" : "bg-green-500";
 
   return (
-    <div className="container mx-auto p-4 flex flex-col md:flex-row h-screen">
-      <div className="w-full md:w-3/4 pr-0 md:pr-4 mb-4 md:mb-0">
-        <div className="h-[calc(100vh-200px)] overflow-y-auto mb-4 bg-accent rounded-lg p-4">
+    <div className="container mx-auto p-4 flex flex-col md:flex-row h-screen gap-4">
+      <div className="w-full md:w-3/4 flex flex-col h-full">
+        <div className="flex-1 overflow-y-auto mb-4 bg-accent/50 backdrop-blur-sm rounded-xl p-6 shadow-lg">
           <AnimatePresence>
             {messages.map((message: ExtendedMessage, index) => (
               <motion.div
@@ -112,10 +112,10 @@ export default function ChatScreen() {
                 }`}
               >
                 <div
-                  className={`inline-block p-2 rounded-lg ${
+                  className={`inline-block p-3 rounded-2xl max-w-[80%] shadow-md ${
                     message.role === "user"
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-secondary text-secondary-foreground"
+                      ? "bg-primary text-primary-foreground rounded-br-none"
+                      : "bg-secondary text-secondary-foreground rounded-bl-none"
                   }`}
                 >
                   {message.content}
@@ -127,7 +127,8 @@ export default function ChatScreen() {
                       {(message as ExtendedMessage).friendlinessChange !==
                         undefined && (
                         <>
-                          {((message as ExtendedMessage).friendlinessChange ?? 0) > 0
+                          {((message as ExtendedMessage).friendlinessChange ??
+                            0) > 0
                             ? "+"
                             : ""}
                           {(message as ExtendedMessage).friendlinessChange}
@@ -140,16 +141,18 @@ export default function ChatScreen() {
           </AnimatePresence>
           <div ref={messagesEndRef} />
         </div>
-        <form onSubmit={handleSubmit} className="flex gap-2">
+        <form onSubmit={handleSubmit} className="flex gap-3">
           <Input
             value={input}
             onChange={handleInputChange}
             placeholder="Type your message..."
             disabled={isLoading || currentTurn >= totalTurns}
+            className="text-lg p-6 rounded-xl"
           />
           <Button
             type="submit"
             disabled={isLoading || currentTurn >= totalTurns}
+            className="px-8 rounded-xl"
           >
             Send
           </Button>
@@ -157,39 +160,43 @@ export default function ChatScreen() {
       </div>
       <div className="w-full md:w-1/4">
         {character && (
-          <Card className="h-full flex flex-col">
-            <CardHeader>
-              <CardTitle className="flex items-center text-2xl">
-                <span className="text-4xl mr-2">{character.emoji}</span>
+          <Card className="h-full flex flex-col border-2 rounded-xl shadow-lg">
+            <CardHeader className="space-y-2">
+              <CardTitle className="flex items-center text-2xl gap-2">
+                <span className="text-4xl">{character.emoji}</span>
                 {character.name}
               </CardTitle>
-              <CardDescription>{character.description}</CardDescription>
+              <CardDescription className="text-base">
+                {character.description}
+              </CardDescription>
             </CardHeader>
-            <CardContent className="flex-grow">
-              <h3 className="font-bold mb-2">Friendliness</h3>
-              <motion.div
-                initial={{ width: "0%" }}
-                animate={{ width: `${Math.abs(friendliness)}%` }}
-                transition={{ duration: 0.5 }}
-              >
-                <Progress
-                  value={Math.abs(friendliness)}
-                  max={100}
-                  className={friendlinessColor}
-                />
-              </motion.div>
-              <p className="mt-2 text-lg font-semibold">
-                {friendliness < 0 ? friendliness : `+${friendliness}`} / 100
-              </p>
+            <CardContent className="flex-grow space-y-6">
+              <div className="space-y-2">
+                <h3 className="font-bold text-lg">Friendliness</h3>
+                <motion.div
+                  initial={{ width: "0%" }}
+                  animate={{ width: `${Math.abs(friendliness)}%` }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Progress
+                    value={Math.abs(friendliness)}
+                    max={100}
+                    className={`h-3 ${friendlinessColor}`}
+                  />
+                </motion.div>
+                <p className="mt-2 text-xl font-bold">
+                  {friendliness < 0 ? friendliness : `+${friendliness}`} / 100
+                </p>
+              </div>
             </CardContent>
             <CardFooter>
-              <div className="w-full">
-                <h3 className="font-bold mb-2">Game Progress</h3>
+              <div className="w-full space-y-2">
+                <h3 className="font-bold text-lg">Game Progress</h3>
                 <Progress
                   value={(currentTurn / totalTurns) * 100}
-                  className="mb-2"
+                  className="h-3"
                 />
-                <p className="text-center text-lg font-semibold">
+                <p className="text-center text-lg font-bold">
                   Turn {currentTurn} / {totalTurns}
                 </p>
               </div>

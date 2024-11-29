@@ -35,28 +35,32 @@ export default function StartGame() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="container mx-auto p-4"
+      className="container max-w-2xl mx-auto px-4 py-8 space-y-6"
     >
-      <h1 className="text-3xl font-bold mb-4">Start Game: {mode}</h1>
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Game Settings</CardTitle>
+      <h1 className="text-4xl font-extrabold text-center tracking-tight mb-8">
+        Start Game: <span className="text-primary">{mode}</span>
+      </h1>
+      <Card className="border-2">
+        <CardHeader className="space-y-1">
+          <CardTitle className="text-2xl">Game Settings</CardTitle>
         </CardHeader>
-        <CardContent>
-          <Label htmlFor="turns">Number of Turns: {turns}</Label>
-          <Slider
-            id="turns"
-            min={5}
-            max={20}
-            step={1}
-            value={[turns]}
-            onValueChange={(value) => setTurns(value[0])}
-            className="my-4"
-          />
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="turns" className="text-lg">Number of Turns: {turns}</Label>
+            <Slider
+              id="turns"
+              min={5}
+              max={20}
+              step={1}
+              value={[turns]}
+              onValueChange={(value) => setTurns(value[0])}
+              className="my-4"
+            />
+          </div>
         </CardContent>
       </Card>
       <CharacterSelection mode={mode} onSelect={setSelectedCharacter} />
-      <Button onClick={handleStart} className="mt-4 w-full">
+      <Button onClick={handleStart} className="w-full text-lg py-6 font-semibold">
         Start Game
       </Button>
     </motion.div>
