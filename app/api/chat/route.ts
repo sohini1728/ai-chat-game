@@ -15,22 +15,10 @@ export async function POST(req: Request) {
     messages: [
       {
         role: "system",
-        content: `${character?.prompt} You are in ${mode} mode. Your current friendliness level is ${friendliness}. Respond to the user and adjust the friendliness level based on their message. Keep responses concise, under 50 words. The game has a total of ${totalTurns} turns.`,
+        content: `${character?.prompt} You are in ${mode} mode. Your current friendliness level is ${friendliness}. Respond to the user and adjust the friendliness level based on their message. Keep responses concise, under 50 words. The game has a total of ${totalTurns} turns. Return a JSON object with the keys "message" and "friendlinessChange".`,
       },
       ...messages,
     ],
-    // onFinish: async (completion: string) => {
-    //   const friendlinessChange = calculateFriendlinessChange(
-    //     completion,
-    //     mode,
-    //     characterId
-    //   );
-    //   const newFriendliness = Math.max(
-    //     -100,
-    //     Math.min(100, friendliness + friendlinessChange)
-    //   );
-    //   return JSON.stringify({ newFriendliness, friendlinessChange });
-    // },
   });
 
   return result.toDataStreamResponse();

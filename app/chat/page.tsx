@@ -41,15 +41,19 @@ export default function ChatScreen() {
       body: { mode, characterId, friendliness },
       onResponse: async (response) => {
         const data = await response.json();
-        setFriendliness(data.newFriendliness);
-        setCurrentTurn((prev) => {
-          const newTurn = prev + 1;
-          if (newTurn >= totalTurns) {
-            toast.success(`Final friendliness: ${data.newFriendliness}`);
+        const { friendlinessChange } = data;
+        setFriendliness((prev) => {
+          const newFriendliness = Math.max(
+            -100,
+            Math.min(100, prev + friendlinessChange)
+          );
+          if (currentTurn + 1 >= totalTurns) {
+            toast.success(`Final friendliness: ${newFriendliness}`);
             setTimeout(() => router.push("/"), 5000);
           }
-          return newTurn;
+          return newFriendliness;
         });
+        setCurrentTurn((prev) => prev + 1);
       },
     });
 
@@ -93,17 +97,22 @@ export default function ChatScreen() {
                 >
                   {message.content}
                 </div>
-                {message.role === "assistant" && (message as ExtendedMessage).friendlinessChange && (
-                  <div className="text-sm text-muted-foreground mt-1">
-                    Friendliness change:{" "}
-                    {(message as ExtendedMessage).friendlinessChange !== undefined && (
-                      <>
-                        {(message as ExtendedMessage).friendlinessChange ?? 0 > 0 ? "+" : ""}
-                        {(message as ExtendedMessage).friendlinessChange}
-                      </>
-                    )}
-                  </div>
-                )}
+                {message.role === "assistant" &&
+                  (message as ExtendedMessage).friendlinessChange && (
+                    <div className="text-sm text-muted-foreground mt-1">
+                      Friendliness change:{" "}
+                      {(message as ExtendedMessage).friendlinessChange !==
+                        undefined && (
+                        <>
+                          {(message as ExtendedMessage).friendlinessChange ??
+                          0 > 0
+                            ? "+"
+                            : ""}
+                          {(message as ExtendedMessage).friendlinessChange}
+                        </>
+                      )}
+                    </div>
+                  )}
               </motion.div>
             ))}
           </AnimatePresence>
