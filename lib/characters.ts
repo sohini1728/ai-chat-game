@@ -18,7 +18,7 @@ export type Mode =
   | "survive"
   | "thrill"
   | "mystery"
-  | "Dream";
+  | "dream";
 
 
 export const characters: Record<Mode, Character[]> = {

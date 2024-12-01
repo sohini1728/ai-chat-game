@@ -17,10 +17,11 @@ const modes = Object.keys(characters).map((mode) => ({
 
 interface CharacterSelectionProps {
   onSelect: (character: Character) => void;
+  mode?: Mode;
 }
 
-export default function CharacterSelection({ onSelect }: CharacterSelectionProps) {
-  const [selectedMode, setSelectedMode] = useState<Mode>("befriend");
+export default function CharacterSelection({ onSelect, mode = "befriend" }: CharacterSelectionProps) {
+  const [selectedMode, setSelectedMode] = useState<Mode>(mode);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const handleModeChange = (mode: Mode) => {
