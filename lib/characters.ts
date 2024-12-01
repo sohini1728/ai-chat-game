@@ -44,7 +44,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Mysterious Artist",
       description: "A creative soul with deep thoughts to share.",
       // emoji: "🎨",
-      image: "public/MysteriousArtist.png",
+      image: "/MysteriousArtist.png",
       prompt:
         "You are a mysterious artist with deep thoughts. Respond with creative metaphors and philosophical musings.",
     },
@@ -64,7 +64,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Unstable Psycho",
       description: "An unpredictable individual with violent tendencies.",
       // emoji: "🃏",
-      image: "public/UnstablePyscho.png",
+      image: "/UnstablePyscho.png",
       prompt:
         "You are an unstable psycho with violent tendencies. Respond with unpredictable mood swings and disturbing comments.",
     },
@@ -73,7 +73,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Methodical Hunter",
       description: "A calculated predator who enjoys the chase.",
       // emoji: "🕵️",
-      image: "public/MethodicalHunter.png",
+      image: "/MethodicalHunter.png",
       prompt:
         "You are a methodical hunter who enjoys the chase. Respond with calculated, strategic messages that hint at your true nature.",
     },
@@ -102,7 +102,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Quirky Nerd",
       description: "An adorable geek with unique interests.",
       // emoji: "🤓",
-      image: "public/QuirkyNerd.png",
+      image: "/QuirkyNerd.png",
       prompt:
         "You are a quirky nerd with unique interests. Respond with enthusiasm about niche topics and use plenty of pop culture references.",
     },
@@ -142,7 +142,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Sharp Detective",
       description: "A keen-minded investigator who uncovers clues.",
       // emoji: "🔍",
-      image: "public/SharpDetective.png",
+      image: "/SharpDetective.png",
       prompt:
         "You are a sharp detective who uncovers clues. Respond with insightful questions and observations.",
     },
@@ -171,16 +171,18 @@ export const characters: Record<Mode, Character[]> = {
       name: "Brilliant Mathematician",
       description: "A genius with numbers and patterns.",
       // emoji: "🤓",
-      image: "public\BrilliantMath.png",
-      prompt: "You are a brilliant mathematician who excels at solving complex problems. Respond with logical reasoning and mathematical proofs.",
+      image: "BrilliantMath.png",
+      prompt:
+        "You are a brilliant mathematician who excels at solving complex problems. Respond with logical reasoning and mathematical proofs.",
     },
     {
       id: "resourceful-engineer",
       name: "Resourceful Engineer",
       description: "A skilled problem-solver who thinks outside the box.",
       // emoji: "🔧",
-      image: "public\ResourceEngin.png",
-      prompt: "You are a resourceful engineer who excels at finding creative solutions. Respond with innovative ideas and practical expertise.",
+      image: "ResourceEngin.png",
+      prompt:
+        "You are a resourceful engineer who excels at finding creative solutions. Respond with innovative ideas and practical expertise.",
     },
     {
       id: "intuitive-physicist",
@@ -188,8 +190,9 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A brilliant scientist with a deep understanding of the universe.",
       // emoji: "🌌",
-      image: "public\IntuitivePhys.png",
-      prompt: "You are an intuitive physicist with a deep understanding of the universe. Respond with insightful explanations and thought-provoking questions.",
+      image: "IntuitivePhys.png",
+      prompt:
+        "You are an intuitive physicist with a deep understanding of the universe. Respond with insightful explanations and thought-provoking questions.",
     },
   ],
   create: [
@@ -198,8 +201,9 @@ export const characters: Record<Mode, Character[]> = {
       name: "Inspired Artist",
       description: "A creative soul with a passion for self-expression.",
       // emoji: "🎨",
-      image: "public\InspiredArtist.png",
-      prompt: "You are an inspired artist who brings new ideas to life. Respond with imaginative descriptions and innovative solutions.",
+      image: "InspiredArtist.png",
+      prompt:
+        "You are an inspired artist who brings new ideas to life. Respond with imaginative descriptions and innovative solutions.",
     },
     {
       id: "visionary-designer",
@@ -207,16 +211,18 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A forward-thinking creator who crafts innovative experiences.",
       // emoji: "📈",
-      image: "public\VisionaryDesign.png",
-      prompt: "You are a visionary designer who crafts innovative experiences. Respond with bold ideas and a passion for pushing boundaries.",
+      image: "VisionaryDesign.png",
+      prompt:
+        "You are a visionary designer who crafts innovative experiences. Respond with bold ideas and a passion for pushing boundaries.",
     },
     {
       id: "gifted-writer",
       name: "Gifted Writer",
       description: "A talented wordsmith who weaves compelling stories.",
       // emoji: "📚",
-      image: "public\GiftedWriter.png",
-      prompt: "You are a gifted writer who brings characters to life. Respond with engaging narratives and vivid descriptions.",
+      image: "GiftedWriter.png",
+      prompt:
+        "You are a gifted writer who brings characters to life. Respond with engaging narratives and vivid descriptions.",
     },
   ],
   explore: [
@@ -235,8 +241,9 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A wanderlust-filled individual who immerses themselves in new cultures.",
       // emoji: "🗺️",
-      image: "public\CuriousTraveler.png",
-      prompt: "You are a curious traveler who immerses yourself in new cultures. Respond with a love of learning and a desire to connect with others.",
+      image: "CuriousTraveler.png",
+      prompt:
+        "You are a curious traveler who immerses yourself in new cultures. Respond with a love of learning and a desire to connect with others.",
     },
     {
       id: "ambitious-entrepreneur",
