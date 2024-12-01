@@ -1,151 +1,90 @@
 "use client";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Smile,
-  Skull,
-  Heart,
-  Target,
-  Search,
-  Puzzle,
-  Palette,
-  Compass,
-  Zap,
-  Book,
-  BrainCircuit,
-} from "lucide-react";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
-export default function Home() {
+export default function LandingPage() {
   const words = [
     {
-      text: "SIMUCHAT",
+      text: "Welcome to SIMUCHAT",
       className:
-        "text-7xl font-black tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-purple-500 animate-pulse",
+        "bg-gradient-to-r from-purple-200 to-purple-600 bg-clip-text text-transparent font-black text-center",
     },
   ];
 
-  const gameModes = [
-    {
-      name: "Befriend",
-      description: "Try to make a new friend!",
-      href: "/start?mode=befriend",
-      icon: <Smile className="h-8 w-8" />,
-    },
-    {
-      name: "Escape Murderer",
-      description: "Can you outsmart a killer?",
-      href: "/start?mode=escape",
-      icon: <Skull className="h-8 w-8" />,
-    },
-    {
-      name: "Romance",
-      description: "Find your AI soulmate",
-      href: "/start?mode=romance",
-      icon: <Heart className="h-8 w-8 fill-current" />,
-    },
-    {
-      name: "Debate",
-      description: "Engage in a battle of wits!",
-      href: "/start?mode=debate",
-      icon: <Target className="h-8 w-8" />,
-    },
-    {
-      name: "Investigate",
-      description: "Solve the mystery!",
-      href: "/start?mode=investigate",
-      icon: <Search className="h-8 w-8" />,
-    },
-    {
-      name: "Solve",
-      description: "Crack the code!",
-      href: "/start?mode=solve",
-      icon: <Puzzle className="h-8 w-8" />,
-    },
-    {
-      name: "Create",
-      description: "Unleash your creativity!",
-      href: "/start?mode=create",
-      icon: <Palette className="h-8 w-8" />,
-    },
-    {
-      name: "Explore",
-      description: "Embark on an adventure!",
-      href: "/start?mode=explore",
-      icon: <Compass className="h-8 w-8" />,
-    },
-    {
-      name: "Survive",
-      description: "Stay alive!",
-      href: "/start?mode=survive",
-      icon: <Zap className="h-8 w-8" />,
-    },
-    {
-      name: "Thrill",
-      description: "Feel the rush!",
-      href: "/start?mode=thrill",
-      icon: <Book className="h-8 w-8" />,
-    },
-    {
-      name: "Mystery",
-      description: "Unravel the enigma!",
-      href: "/start?mode=mystery",
-      icon: <BrainCircuit className="h-8 w-8" />,
-    },
-    {
-      name: "Dream",
-      description: "Enter the subconscious!",
-      href: "/start?mode=dream",
-      icon: <BrainCircuit className="h-8 w-8" />,
-    },
+  const features = [
+    { title: "AI Companions", description: "Form meaningful connections" },
+    { title: "Dynamic Stories", description: "Every chat is unique" },
+    { title: "Multiple Modes", description: "From friendly to thrilling" },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-950 to-black text-white flex items-center justify-center p-4 overflow-hidden">
-      <div className="max-w-6xl w-full space-y-12 relative">
-        <div className="text-center space-y-6 relative">
-          <div className="absolute inset-0 bg-purple-500/20 blur-[100px] -z-10" />
+    <div className="min-h-screen text-white selection:bg-purple-500/30 selection:text-purple-200">
+      <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+        <div className="relative z-10 text-center space-y-12 px-4 max-w-4xl mx-auto">
           <TypewriterEffectSmooth
             words={words}
-            className="flex justify-center items-center"
+            className="text-5xl md:text-7xl !mb-8 flex items-center justify-center"
           />
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-purple-200/90 text-xl md:text-2xl font-light leading-relaxed"
+          >
+            Experience the next generation of AI storytelling. Immerse yourself
+            in dynamic conversations, thrilling adventures, and meaningful
+            connections.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-wrap gap-4 justify-center items-center"
+          >
+            <Link href="/modes">
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-full ring-2 ring-purple-500/20 hover:ring-purple-500/40 transition-all duration-300 shadow-lg hover:shadow-purple-500/20">
+                Start Your Adventure
+              </Button>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
+          >
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                className="backdrop-blur-sm bg-purple-900/20 border-2 border-purple-500/30 rounded-xl p-8 hover:bg-purple-800/20 transition-all duration-300 hover:border-purple-500/50 shadow-lg shadow-purple-500/5"
+              >
+                <h3 className="text-2xl font-semibold text-purple-100 mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-purple-200/90 text-lg">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 px-4">
-          {gameModes.map((mode) => (
-            <Card
-              key={mode.name}
-              className="group bg-black/40 border-purple-500/20 backdrop-blur-sm hover:bg-black/60 transition-all duration-300 hover:scale-105 hover:border-purple-500/40"
-            >
-              <CardContent className="pt-6 space-y-4">
-                <div className="flex justify-between items-start">
-                  <div className="space-y-2">
-                    <h2 className="text-2xl font-semibold text-purple-100 group-hover:text-purple-300 transition-colors">
-                      {mode.name}
-                    </h2>
-                    <p className="text-purple-200/60 group-hover:text-purple-200/80 transition-colors">
-                      {mode.description}
-                    </p>
-                  </div>
-                  <div className="text-purple-400 group-hover:text-purple-300 transition-colors">
-                    {mode.icon}
-                  </div>
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Link href={mode.href} className="w-full">
-                  <Button
-                    className="w-full bg-purple-600/80 hover:bg-purple-500 text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:shadow-purple-500/40"
-                    size="lg"
-                  >
-                    Play Now
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+        {/* Enhanced Floating Elements */}
+        <motion.div
+          animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[20%] left-[15%] w-32 h-32 bg-purple-500/10 rounded-full blur-xl"
+        />
+        <motion.div
+          animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[20%] right-[15%] w-40 h-40 bg-purple-700/10 rounded-full blur-xl"
+        />
       </div>
     </div>
   );

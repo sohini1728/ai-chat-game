@@ -18,9 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.className} min-h-screen bg-gradient-to-b from-background to-background/80 antialiased`}
-      >
+      <body className={`${inter.className} min-h-screen bg-black antialiased`}>
+        <div className="fixed inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+        <div className="fixed inset-0 bg-gradient-to-br from-black via-purple-950 to-black" />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <main className="relative flex min-h-screen flex-col">
             <Toaster position="top-center" />
