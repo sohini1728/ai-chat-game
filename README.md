@@ -1,6 +1,6 @@
 # AI Chat Game
 
-A fun interactive chat game where you try to build friendliness with AI characters through conversation.
+An immersive chat-based role-playing game featuring 36 unique AI characters across 12 different game modes. Test your social skills, solve mysteries, survive challenges, and more - all through dynamic conversations where your choices impact the character's friendliness towards you.
 
 ## Features
 
@@ -9,6 +9,87 @@ A fun interactive chat game where you try to build friendliness with AI characte
 - Limited number of turns to achieve your goal
 - Real-time friendliness score tracking
 - Modern UI with dark/light theme support
+
+## Game Modes
+
+- **Befriend**: Try to make a new friend!
+
+  - Shy Introvert
+  - Bubbly Extrovert
+  - Mysterious Artist
+
+- **Escape**: Can you outsmart a killer?
+
+  - Cunning Killer
+  - Unstable Psycho
+  - Methodical Hunter
+
+- **Romance**: Find your AI soulmate
+
+  - Hopeless Romantic
+  - Charming Player
+  - Quirky Nerd
+
+- **Debate**: Engage in a battle of wits!
+
+  - Passionate Advocate
+  - Skeptical Critic
+  - Open-Minded Mediator
+
+- **Investigate**: Solve the mystery!
+
+  - Sharp Detective
+  - Curious Journalist
+  - Seasoned Sleuth
+
+- **Solve**: Crack the code!
+
+  - Brilliant Mathematician
+  - Resourceful Engineer
+  - Intuitive Physicist
+
+- **Create**: Unleash your creativity!
+
+  - Inspired Artist
+  - Visionary Designer
+  - Gifted Writer
+
+- **Explore**: Embark on an adventure!
+
+  - Intrepid Explorer
+  - Curious Traveler
+  - Ambitious Entrepreneur
+
+- **Survive**: Stay alive!
+
+  - Resourceful Survivor
+  - Skilled Hunter
+  - Tough Warrior
+
+- **Thrill**: Feel the rush!
+
+  - Daring Adventurer
+  - Sneaky Spy
+  - Cunning Thief
+
+- **Mystery**: Unravel the enigma!
+
+  - Sharp Detective
+  - Intuitive Psychic
+  - Curious Journalist
+
+- **Dream**: Enter the subconscious!
+  - Dreamweaver
+  - Subconscious Explorer
+  - Lucid Dreamer
+
+## Gameplay
+
+- Each character has unique personality traits and response patterns
+- Limited turns to achieve your goal
+- Dynamic friendliness system (-100 to +100) affected by your choices
+- Multiple conversation strategies needed for different characters
+- Real-time feedback on character relationships
 
 ## Tech Stack
 
