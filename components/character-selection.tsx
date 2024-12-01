@@ -45,7 +45,7 @@ export default function CharacterSelection({
             >
               <CardContainer>
                 <CardBody
-                  className={`bg-gray-50 relative group/card dark:hover:shadow-2xl dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto h-auto rounded-xl p-6 border ${
+                  className={`relative group/card border-purple-800/60 bg-purple-950/30 backdrop-blur-sm dark:hover:shadow-2xl w-auto h-auto rounded-xl p-6 border ${
                     selectedId === character.id ? "ring-2 ring-primary" : ""
                   }`}
                   onClick={() => handleSelect(character)}
