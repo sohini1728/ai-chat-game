@@ -162,21 +162,14 @@ export default function ChatScreen() {
                   {message.content}
                 </div>
                 {message.role === "assistant" &&
-                  (message as ExtendedMessage).friendlinessChange && (
+                  (message as ExtendedMessage).friendlinessChange !== undefined && (
                     <div className="text-sm text-muted-foreground mt-1">
                       Friendliness change:{" "}
-                      {(message as ExtendedMessage).friendlinessChange !==
-                        undefined && (
-                        <>
-                          {((message as ExtendedMessage).friendlinessChange ??
-                            0) > 0
-                            ? "+"
-                            : ""}
-                          {(message as ExtendedMessage).friendlinessChange}
-                        </>
-                      )}
+                      {(message as ExtendedMessage).friendlinessChange > 0
+                        ? `+${(message as ExtendedMessage).friendlinessChange}`
+                        : (message as ExtendedMessage).friendlinessChange}
                     </div>
-                  )}
+                )}
               </motion.div>
             ))}
           </AnimatePresence>
