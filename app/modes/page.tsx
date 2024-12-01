@@ -1,4 +1,5 @@
 "use client";
+
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ import {
   BrainCircuit,
 } from "lucide-react";
 import Link from "next/link";
+import SurpriseMeCard from "@/components/SurpriseMeCard";
 
 export default function Home() {
   const words = [
@@ -100,6 +102,11 @@ export default function Home() {
     },
   ];
 
+  const handleSurpriseMe = () => {
+    const randomMode = gameModes[Math.floor(Math.random() * gameModes.length)];
+    window.location.href = randomMode.href;
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-950 to-black text-white flex items-center justify-center p-4 overflow-hidden">
       <div className="max-w-6xl w-full space-y-12 relative">
@@ -143,6 +150,30 @@ export default function Home() {
               </CardFooter>
             </Card>
           ))}
+
+          <Card
+            className="group bg-black/40 border-purple-500/20 backdrop-blur-sm hover:bg-black/60 transition-all duration-300 hover:scale-105 hover:border-purple-500/40"
+          >
+            <CardContent className="pt-6 space-y-4">
+              <div className="space-y-2">
+                <h2 className="text-2xl font-semibold text-purple-100 group-hover:text-purple-300 transition-colors">
+                  😮 Surprise Me!
+                </h2>
+                <p className="text-purple-200/60 group-hover:text-purple-200/80 transition-colors">
+                  Let fate decide your adventure!
+                </p>
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button
+                onClick={handleSurpriseMe}
+                className="w-full bg-purple-600/80 hover:bg-purple-500 text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:shadow-purple-500/40"
+                size="lg"
+              >
+                Surprise Me! 🤯
+              </Button>
+            </CardFooter>
+          </Card>
         </div>
       </div>
     </div>

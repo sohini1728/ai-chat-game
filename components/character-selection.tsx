@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { characters, Character, Mode } from "@/lib/characters";
+import SurpriseMeCard from "@/components/SurpriseMeCard";
 
 interface CharacterSelectionProps {
   onSelect: (character: Character) => void;
-  mode: Mode;
+  mode: Mode | "surprise";
 }
 
 export default function CharacterSelection({
@@ -18,11 +19,13 @@ export default function CharacterSelection({
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   useEffect(() => {
-    // Select first character by default
-    const firstCharacter = characters[mode][0];
-    if (firstCharacter) {
-      setSelectedId(firstCharacter.id);
-      onSelect(firstCharacter);
+    if (mode !== "surprise") {
+      // Select first character by default
+      const firstCharacter = characters[mode][0];
+      if (firstCharacter) {
+        setSelectedId(firstCharacter.id);
+        onSelect(firstCharacter);
+      }
     }
   }, [mode, onSelect]);
 
@@ -30,6 +33,19 @@ export default function CharacterSelection({
     setSelectedId(character.id);
     onSelect(character);
   };
+
+  if (mode === "surprise") {
+    return (
+      <SurpriseMeCard
+        onSelect={(character) => {
+          // Handle surprise me selection
+          const randomMode = Object.keys(characters)[Math.floor(Math.random() * Object.keys(characters).length)];
+          const randomCharacter = characters[randomMode][Math.floor(Math.random() * characters[randomMode].length)];
+          onSelect(randomCharacter);
+        }}
+      />
+    );
+  }
 
   return (
     <div className="space-y-8">
@@ -72,14 +88,6 @@ export default function CharacterSelection({
                       alt={character.name}
                     />
                   </CardItem>
-                  {/* <CardItem
-                    translateZ={20}
-                    as="button"
-                    onClick={() => handleSelect(character)}
-                    className="px-4 py-2 mt-4 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-                  >
-                    Select Character
-                  </CardItem> */}
                 </CardBody>
               </CardContainer>
             </motion.div>
