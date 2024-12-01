@@ -1,3 +1,5 @@
+"use client";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,6 +18,14 @@ import {
 import Link from "next/link";
 
 export default function Home() {
+  const words = [
+    {
+      text: "SIMUCHAT",
+      className:
+        "text-7xl font-black tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600 animate-pulse",
+    },
+  ];
+
   const gameModes = [
     {
       name: "Befriend",
@@ -96,18 +106,16 @@ export default function Home() {
       <div className="max-w-6xl w-full space-y-12 relative">
         <div className="text-center space-y-6 relative">
           <div className="absolute inset-0 bg-purple-500/20 blur-[100px] -z-10" />
-          <h1 className="text-7xl font-black tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600 animate-pulse">
-            SIMUCHAT
-          </h1>
-          <p className="text-2xl text-purple-200/80 font-light">
-            Choose Your Adventure
-          </p>
+          <TypewriterEffectSmooth
+            words={words}
+            className="flex justify-center items-center"
+          />
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-6 px-4">
           {gameModes.map((mode) => (
-            <Card 
-              key={mode.name} 
+            <Card
+              key={mode.name}
               className="group bg-black/40 border-purple-500/20 backdrop-blur-sm hover:bg-black/60 transition-all duration-300 hover:scale-105 hover:border-purple-500/40"
             >
               <CardContent className="pt-6 space-y-4">
@@ -127,7 +135,7 @@ export default function Home() {
               </CardContent>
               <CardFooter>
                 <Link href={mode.href} className="w-full">
-                  <Button 
+                  <Button
                     className="w-full bg-purple-600/80 hover:bg-purple-500 text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:shadow-purple-500/40"
                     size="lg"
                   >
