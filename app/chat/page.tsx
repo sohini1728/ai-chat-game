@@ -163,7 +163,7 @@ export default function ChatScreen() {
           <Card className="h-full flex flex-col border-2 rounded-xl shadow-lg">
             <CardHeader className="space-y-2">
               <CardTitle className="flex items-center text-2xl gap-2">
-                <span className="text-4xl">{character.emoji}</span>
+                {/* <span className="text-4xl">{character.emoji}</span> */}
                 {character.name}
               </CardTitle>
               <CardDescription className="text-base">

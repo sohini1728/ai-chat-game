@@ -70,7 +70,7 @@ export default function CharacterSelection({ onSelect, mode = "befriend" }: Char
             >
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <span className="text-4xl mr-2">{character.emoji}</span>
+                  {/* <span className="text-4xl mr-2">{character.emoji}</span> */}
                   {character.name}
                 </CardTitle>
                 <CardDescription>{character.description}</CardDescription>
