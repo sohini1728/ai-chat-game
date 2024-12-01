@@ -146,7 +146,10 @@ export default function ChatScreen() {
       <div className="w-full md:w-3/4 flex flex-col h-full">
         <div className="mb-4">
           <Link href="/modes">
-            <Button variant="outline" className="mb-4">
+            <Button
+              variant="outline"
+              className="bg-background/40 backdrop-blur-sm border-purple-800/60 hover:bg-background/60"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -191,14 +194,17 @@ export default function ChatScreen() {
                     {message.content}
                   </div>
                   {message.role === "assistant" &&
-                    (message as ExtendedMessage).friendlinessChange !== undefined && (
+                    (message as ExtendedMessage).friendlinessChange !==
+                      undefined && (
                       <div className="text-sm text-muted-foreground mt-1">
                         Friendliness change:{" "}
-                        {(message as ExtendedMessage).friendlinessChange === 0
-                          ? "0"
-                          : (message as ExtendedMessage).friendlinessChange > 0
-                          ? `+${(message as ExtendedMessage).friendlinessChange}`
-                          : (message as ExtendedMessage).friendlinessChange}
+                        {(() => {
+                          const change = (message as ExtendedMessage)
+                            .friendlinessChange;
+                          if (change === undefined) return "0";
+                          if (change === 0) return "0";
+                          return change > 0 ? `+${change}` : `${change}`;
+                        })()}
                       </div>
                     )}
                 </motion.div>

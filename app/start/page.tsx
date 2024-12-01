@@ -38,11 +38,11 @@ export default function StartGame() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="container max-w-5xl mx-auto px-4 py-8 space-y-6"
+      className="container max-w-5xl mx-auto px-4 py-8 space-y-12"
     >
       <div className="flex items-center justify-between mb-8">
         <Link href="/modes">
-          <Button variant="outline">
+          <Button variant="outline" className="bg-background/40 backdrop-blur-sm border-purple-800/60 hover:bg-background/60">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -60,11 +60,11 @@ export default function StartGame() {
             Back to Modes
           </Button>
         </Link>
-        <h1 className="text-4xl font-extrabold text-center tracking-tight">
-          Mode: <span className="text-primary">{mode}</span>
+        <h1 className="text-4xl md:text-6xl font-black text-center tracking-wider uppercase">
+          <span className="text-primary font-black uppercase">{mode}</span>
         </h1>
       </div>
-      <Card className="border-2">
+      <Card className="border-2 border-purple-800/60 bg-purple-950/30 backdrop-blur-sm">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">Game Settings</CardTitle>
         </CardHeader>
