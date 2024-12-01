@@ -71,7 +71,7 @@ export default function ChatScreen() {
           );
           if (currentTurn + 1 >= totalTurns) {
             toast.success(`Final friendliness: ${newFriendliness}`);
-            setTimeout(() => router.push("/"), 5000);
+            setTimeout(() => router.push("/modes"), 5000);
           }
           return newFriendliness;
         });
