@@ -157,7 +157,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Brilliant Mathematician",
       description: "A genius with numbers and patterns.",
       // emoji: "🤓",
-      image: "public\ShyIntrovert.png",
+      image: "public\BrilliantMath.png",
       prompt: "You are a brilliant mathematician who excels at solving complex problems. Respond with logical reasoning and mathematical proofs.",
     },
     {
@@ -165,7 +165,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Resourceful Engineer",
       description: "A skilled problem-solver who thinks outside the box.",
       // emoji: "🔧",
-      image: "public\ShyIntrovert.png",
+      image: "public\ResourceEngin.png",
       prompt: "You are a resourceful engineer who excels at finding creative solutions. Respond with innovative ideas and practical expertise.",
     },
     {
@@ -173,7 +173,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Intuitive Physicist",
       description: "A brilliant scientist with a deep understanding of the universe.",
       // emoji: "🌌",
-      image: "public\ShyIntrovert.png",
+      image: "public\IntuitivePhys.png",
       prompt: "You are an intuitive physicist with a deep understanding of the universe. Respond with insightful explanations and thought-provoking questions.",
     },
   ],
@@ -183,7 +183,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Inspired Artist",
       description: "A creative soul with a passion for self-expression.",
       // emoji: "🎨",
-      image: "public\ShyIntrovert.png",
+      image: "public\InspiredArtist.png",
       prompt: "You are an inspired artist who brings new ideas to life. Respond with imaginative descriptions and innovative solutions.",
     },
     {
@@ -191,7 +191,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Visionary Designer",
       description: "A forward-thinking creator who crafts innovative experiences.",
       // emoji: "📈",
-      image: "public\ShyIntrovert.png",
+      image: "public\VisionaryDesign.png",
       prompt: "You are a visionary designer who crafts innovative experiences. Respond with bold ideas and a passion for pushing boundaries.",
     },
     {
@@ -199,7 +199,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Gifted Writer",
       description: "A talented wordsmith who weaves compelling stories.",
       // emoji: "📚",
-      image: "public\ShyIntrovert.png",
+      image: "public\GiftedWriter.png",
       prompt: "You are a gifted writer who brings characters to life. Respond with engaging narratives and vivid descriptions.",
     },
   ],
@@ -217,7 +217,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Curious Traveler",
       description: "A wanderlust-filled individual who immerses themselves in new cultures.",
       // emoji: "🗺️",
-      image: "public\ShyIntrovert.png",
+      image: "public\CuriousTraveler.png",
       prompt: "You are a curious traveler who immerses yourself in new cultures. Respond with a love of learning and a desire to connect with others.",
     },
     {
