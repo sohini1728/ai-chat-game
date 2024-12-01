@@ -171,28 +171,18 @@ export const characters: Record<Mode, Character[]> = {
       name: "Brilliant Mathematician",
       description: "A genius with numbers and patterns.",
       // emoji: "🤓",
-<<<<<<< HEAD
-      image: "public\BrilliantMath.png",
-      prompt: "You are a brilliant mathematician who excels at solving complex problems. Respond with logical reasoning and mathematical proofs.",
-=======
-      image: "/ShyIntrovert.png",
+      image: "/BrilliantMath.png",
       prompt:
         "You are a brilliant mathematician who excels at solving complex problems. Respond with logical reasoning and mathematical proofs.",
->>>>>>> 6f4d8d5a9b8023e69d9ee1ef8231b79898d8d624
     },
     {
       id: "resourceful-engineer",
       name: "Resourceful Engineer",
       description: "A skilled problem-solver who thinks outside the box.",
       // emoji: "🔧",
-<<<<<<< HEAD
-      image: "public\ResourceEngin.png",
-      prompt: "You are a resourceful engineer who excels at finding creative solutions. Respond with innovative ideas and practical expertise.",
-=======
-      image: "/ShyIntrovert.png",
+      image: "/ResourceEngin.png",
       prompt:
         "You are a resourceful engineer who excels at finding creative solutions. Respond with innovative ideas and practical expertise.",
->>>>>>> 6f4d8d5a9b8023e69d9ee1ef8231b79898d8d624
     },
     {
       id: "intuitive-physicist",
@@ -200,14 +190,9 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A brilliant scientist with a deep understanding of the universe.",
       // emoji: "🌌",
-<<<<<<< HEAD
-      image: "public\IntuitivePhys.png",
-      prompt: "You are an intuitive physicist with a deep understanding of the universe. Respond with insightful explanations and thought-provoking questions.",
-=======
-      image: "/ShyIntrovert.png",
+      image: "/IntuitivePhys.png",
       prompt:
         "You are an intuitive physicist with a deep understanding of the universe. Respond with insightful explanations and thought-provoking questions.",
->>>>>>> 6f4d8d5a9b8023e69d9ee1ef8231b79898d8d624
     },
   ],
   create: [
@@ -216,14 +201,9 @@ export const characters: Record<Mode, Character[]> = {
       name: "Inspired Artist",
       description: "A creative soul with a passion for self-expression.",
       // emoji: "🎨",
-<<<<<<< HEAD
-      image: "public\InspiredArtist.png",
-      prompt: "You are an inspired artist who brings new ideas to life. Respond with imaginative descriptions and innovative solutions.",
-=======
-      image: "/ShyIntrovert.png",
+      image: "/InspiredArtist.png",
       prompt:
         "You are an inspired artist who brings new ideas to life. Respond with imaginative descriptions and innovative solutions.",
->>>>>>> 6f4d8d5a9b8023e69d9ee1ef8231b79898d8d624
     },
     {
       id: "visionary-designer",
@@ -231,28 +211,18 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A forward-thinking creator who crafts innovative experiences.",
       // emoji: "📈",
-<<<<<<< HEAD
-      image: "public\VisionaryDesign.png",
-      prompt: "You are a visionary designer who crafts innovative experiences. Respond with bold ideas and a passion for pushing boundaries.",
-=======
-      image: "/ShyIntrovert.png",
+      image: "/VisionaryDesign.png",
       prompt:
         "You are a visionary designer who crafts innovative experiences. Respond with bold ideas and a passion for pushing boundaries.",
->>>>>>> 6f4d8d5a9b8023e69d9ee1ef8231b79898d8d624
     },
     {
       id: "gifted-writer",
       name: "Gifted Writer",
       description: "A talented wordsmith who weaves compelling stories.",
       // emoji: "📚",
-<<<<<<< HEAD
-      image: "public\GiftedWriter.png",
-      prompt: "You are a gifted writer who brings characters to life. Respond with engaging narratives and vivid descriptions.",
-=======
-      image: "/ShyIntrovert.png",
+      image: "/GiftedWriter.png",
       prompt:
         "You are a gifted writer who brings characters to life. Respond with engaging narratives and vivid descriptions.",
->>>>>>> 6f4d8d5a9b8023e69d9ee1ef8231b79898d8d624
     },
   ],
   explore: [
@@ -271,14 +241,9 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A wanderlust-filled individual who immerses themselves in new cultures.",
       // emoji: "🗺️",
-<<<<<<< HEAD
-      image: "public\CuriousTraveler.png",
-      prompt: "You are a curious traveler who immerses yourself in new cultures. Respond with a love of learning and a desire to connect with others.",
-=======
-      image: "/ShyIntrovert.png",
+      image: "/CuriousTraveler.png",
       prompt:
         "You are a curious traveler who immerses yourself in new cultures. Respond with a love of learning and a desire to connect with others.",
->>>>>>> 6f4d8d5a9b8023e69d9ee1ef8231b79898d8d624
     },
     {
       id: "ambitious-entrepreneur",
