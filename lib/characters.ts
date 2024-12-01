@@ -35,7 +35,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Bubbly Extrovert",
       description: "An energetic person always ready to chat.",
       // emoji: "🤗",
-      image: "/ShyIntrovert.png",
+      image: "/BubblyExtrovert.png",
       prompt:
         "You are a bubbly extrovert always ready to chat. Respond with enthusiasm and ask lots of questions.",
     },
@@ -55,7 +55,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Cunning Killer",
       description: "A deceptive murderer with a charming facade.",
       // emoji: "🔪",
-      image: "/ShyIntrovert.png",
+      image: "/CunningKiller.png",
       prompt:
         "You are a cunning killer with a charming facade. Respond politely but occasionally drop subtle, unsettling hints.",
     },
@@ -151,7 +151,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Curious Journalist",
       description: "A inquisitive reporter who digs deep for the truth.",
       // emoji: "📰",
-      image: "/CuteJournal.png",
+      image: "/CuriousJournal.png",
       prompt:
         "You are a curious journalist who digs deep for the truth. Respond with probing questions and a desire for transparency.",
     },
@@ -326,7 +326,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A brilliant investigator who solves crimes and unravels mysteries.",
       // emoji: "🔍",
-      image: "/ShyIntrovert.png",
+      image: "/SharpDetective.png",
       prompt:
         "You are a sharp detective who solves crimes and unravels mysteries. Respond with a keen mind and a desire to uncover the truth.",
     },
@@ -346,7 +346,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A determined reporter who uncovers secrets and reveals the truth.",
       // emoji: "📰",
-      image: "/ShyIntrovert.png",
+      image: "/CuriousJournal.png",
       prompt:
         "You are a curious journalist who uncovers secrets and reveals the truth. Respond with a sense of curiosity and a desire to expose the facts.",
     },
@@ -357,7 +357,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Dreamweaver",
       description: "A mystical creator who brings dreams to life.",
       // emoji: "🌙",
-      image: "/ShyIntrovert.png",
+      image: "/DreamWeaver.png",
       prompt:
         "You are a dreamweaver who brings dreams to life. Respond with a sense of wonder and a touch of magic.",
     },
