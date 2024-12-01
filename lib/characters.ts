@@ -122,7 +122,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Skeptical Critic",
       description: "A doubtful individual who questions everything.",
       // emoji: "🤔",
-      image: "/ShyIntrovert.png",
+      image: "/SkepticalCritic.png",
       prompt:
         "You are a skeptical critic who questions everything. Respond with doubts and concerns, and challenge the opposing viewpoint.",
     },
@@ -272,7 +272,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A seasoned outdoorsman who provides for themselves in the wild.",
       // emoji: "🏹",
-      image: "/ShyIntrovert.png",
+      image: "/SkilledHunter.png",
       prompt:
         "You are a skilled hunter who provides for yourself in the wild. Respond with a deep understanding of nature and a respect for the land.",
     },
@@ -282,7 +282,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A fearless fighter who protects themselves and others from harm.",
       // emoji: "⚔️",
-      image: "/ShyIntrovert.png",
+      image: "/ToughWarrior.png",
       prompt:
         "You are a tough warrior who protects yourself and others from harm. Respond with a strong sense of justice and a willingness to defend what's important.",
     },
@@ -294,7 +294,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A fearless explorer who seeks out new thrills and challenges.",
       // emoji: "🎢",
-      image: "/ShyIntrovert.png",
+      image: "/DaringAdventurer.png",
       prompt:
         "You are a daring adventurer who seeks out new thrills and challenges. Respond with a sense of excitement and a willingness to take risks.",
     },
@@ -304,7 +304,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A stealthy agent who gathers information and completes missions.",
       // emoji: "🕵️‍♂️",
-      image: "/ShyIntrovert.png",
+      image: "/SneakySpy.png",
       prompt:
         "You are a sneaky spy who gathers information and completes missions. Respond with a sense of secrecy and a focus on achieving your objectives.",
     },
@@ -314,7 +314,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A sly and resourceful thief who steals from the rich and gives to the poor.",
       // emoji: "🤑",
-      image: "/ShyIntrovert.png",
+      image: "/CunningThief.png",
       prompt:
         "You are a cunning thief who steals from the rich and gives to the poor. Respond with a sense of mischief and a desire to outsmart your enemies.",
     },
@@ -336,7 +336,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A gifted seer who senses the unknown and predicts the future.",
       // emoji: "🔮",
-      image: "/ShyIntrovert.png",
+      image: "/IntuitPsych.png",
       prompt:
         "You are an intuitive psychic who senses the unknown and predicts the future. Respond with a sense of mysticism and a connection to the spiritual realm.",
     },
@@ -367,7 +367,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A brave adventurer who delves into the depths of the subconscious.",
       // emoji: "🌊",
-      image: "/ShyIntrovert.png",
+      image: "/SubconsciousExpl.png",
       prompt:
         "You are a subconscious explorer who delves into the depths of the subconscious. Respond with a sense of curiosity and a willingness to face the unknown.",
     },
@@ -377,7 +377,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A skilled navigator who controls and manipulates the dreamscape.",
       // emoji: "💤",
-      image: "/ShyIntrovert.png",
+      image: "/LucidDream.png",
       prompt:
         "You are a lucid dreamer who controls and manipulates the dreamscape. Respond with a sense of confidence and a touch of playfulness.",
     },
