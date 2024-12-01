@@ -16,7 +16,9 @@ export default function StartGame() {
   const searchParams = useSearchParams();
   const mode = (searchParams.get("mode") as Mode) || "defaultMode";
   const [turns, setTurns] = useState(10);
-  const [selectedCharacter, setSelectedCharacter] = useState<{ id: string } | null>(null);
+  const [selectedCharacter, setSelectedCharacter] = useState<{
+    id: string;
+  } | null>(null);
 
   const handleStart = () => {
     if (selectedCharacter) {
@@ -35,7 +37,7 @@ export default function StartGame() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="container max-w-2xl mx-auto px-4 py-8 space-y-6"
+      className="container max-w-5xl mx-auto px-4 py-8 space-y-6"
     >
       <h1 className="text-4xl font-extrabold text-center tracking-tight mb-8">
         Start Game: <span className="text-primary">{mode}</span>
@@ -46,7 +48,9 @@ export default function StartGame() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="turns" className="text-lg">Number of Turns: {turns}</Label>
+            <Label htmlFor="turns" className="text-lg">
+              Number of Turns: {turns}
+            </Label>
             <Slider
               id="turns"
               min={5}
@@ -60,7 +64,10 @@ export default function StartGame() {
         </CardContent>
       </Card>
       <CharacterSelection mode={mode} onSelect={setSelectedCharacter} />
-      <Button onClick={handleStart} className="w-full text-lg py-6 font-semibold">
+      <Button
+        onClick={handleStart}
+        className="w-full text-lg py-6 font-semibold"
+      >
         Start Game
       </Button>
     </motion.div>
