@@ -42,7 +42,7 @@ export default function StartGame() {
     >
       <div className="flex items-center justify-between mb-8">
         <Link href="/modes">
-          <Button variant="outline">
+          <Button variant="outline" className="bg-background/40 backdrop-blur-sm border-purple-800/60 hover:bg-background/60">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

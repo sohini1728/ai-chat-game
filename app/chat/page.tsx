@@ -146,7 +146,10 @@ export default function ChatScreen() {
       <div className="w-full md:w-3/4 flex flex-col h-full">
         <div className="mb-4">
           <Link href="/modes">
-            <Button variant="outline" className="mb-4">
+            <Button
+              variant="outline"
+              className="bg-background/40 backdrop-blur-sm border-purple-800/60 hover:bg-background/60"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
