@@ -44,7 +44,7 @@ export default function CharacterSelection({
           >
             <CardContainer>
               <CardBody
-                className={`relative group/card border-purple-800/60 bg-purple-950/30 backdrop-blur-sm dark:hover:shadow-2xl w-auto h-auto rounded-xl p-4 border ${
+                className={`relative group/card border-purple-800/60 bg-purple-950/30 backdrop-blur-sm dark:hover:shadow-2xl w-auto h-[360px] rounded-xl p-4 border ${
                   selectedId === character.id ? "ring-2 ring-primary" : ""
                 }`}
                 onClick={() => handleSelect(character)}
@@ -58,7 +58,7 @@ export default function CharacterSelection({
                 <CardItem
                   as="p"
                   translateZ="40"
-                  className="text-neutral-500 text-xs max-w-sm mt-1 dark:text-neutral-300"
+                  className="text-neutral-500 text-xs max-w-sm mt-1 dark:text-neutral-300 h-[40px] line-clamp-2"
                 >
                   {character.description}
                 </CardItem>
