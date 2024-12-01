@@ -10,16 +10,23 @@ import {
 } from "@/components/ui/card";
 import { characters, Character, Mode } from "@/lib/characters";
 
+const modes = Object.keys(characters).map((mode) => ({
+  label: mode.charAt(0).toUpperCase() + mode.slice(1),
+  value: mode,
+}));
+
 interface CharacterSelectionProps {
-  mode: Mode;
   onSelect: (character: Character) => void;
 }
 
-export default function CharacterSelection({
-  mode,
-  onSelect,
-}: CharacterSelectionProps) {
+export default function CharacterSelection({ onSelect }: CharacterSelectionProps) {
+  const [selectedMode, setSelectedMode] = useState<Mode>("befriend");
   const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  const handleModeChange = (mode: Mode) => {
+    setSelectedMode(mode);
+    setSelectedId(null);
+  };
 
   const handleSelect = (character: Character) => {
     setSelectedId(character.id);
@@ -28,9 +35,24 @@ export default function CharacterSelection({
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Select a Character</h2>
+      <h2 className="text-2xl font-bold mb-4">Select a Mode and Character</h2>
+      <div className="flex flex-wrap mb-4">
+        {modes.map((mode) => (
+          <button
+            key={mode.value}
+            className={`px-4 py-2 rounded-lg ${
+              selectedMode === mode.value
+                ? "bg-primary text-white"
+                : "bg-accent text-primary hover:bg-accent-dark"
+            }`}
+            onClick={() => handleModeChange(mode.value as Mode)}
+          >
+            {mode.label}
+          </button>
+        ))}
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {characters[mode].map((character, index) => (
+        {characters[selectedMode].map((character, index) => (
           <motion.div
             key={character.id}
             initial={{ opacity: 0, y: 50 }}

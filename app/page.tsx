@@ -6,7 +6,16 @@ const gameModes = [
   { name: 'Befriend', description: 'Try to make a new friend!', href: '/start?mode=befriend' },
   { name: 'Escape Murderer', description: 'Can you outsmart a killer?', href: '/start?mode=escape' },
   { name: 'Romance', description: 'Find your AI soulmate', href: '/start?mode=romance' },
-]
+  { name: 'Debate', description: 'Engage in a battle of wits!', href: '/start?mode=debate' },
+  { name: 'Investigate', description: 'Solve the mystery!', href: '/start?mode=investigate' },
+  { name: 'Solve', description: 'Crack the code!', href: '/start?mode=solve' },
+  { name: 'Create', description: 'Unleash your creativity!', href: '/start?mode=create' },
+  { name: 'Explore', description: 'Embark on an adventure!', href: '/start?mode=explore' },
+  { name: 'Survive', description: 'Stay alive!', href: '/start?mode=survive' },
+  { name: 'Thrill', description: 'Feel the rush!', href: '/start?mode=thrill' },
+  { name: 'Mystery', description: 'Unravel the enigma!', href: '/start?mode=mystery' },
+  { name: 'Dream', description: 'Enter the subconscious!', href: '/start?mode=dream' },
+];
 
 export default function Home() {
   return (
