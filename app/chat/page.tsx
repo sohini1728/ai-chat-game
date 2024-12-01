@@ -101,14 +101,14 @@ export default function ChatScreen() {
         barWidth: friendliness,
         color: "bg-primary",
         scale: "0 to 100",
-        style: { marginLeft: "0%" }
+        style: { marginLeft: "0%" },
       };
     } else {
       return {
         barWidth: Math.abs(friendliness),
         color: "bg-destructive",
         scale: "-100 to 0",
-        style: { marginLeft: `${100 - Math.abs(friendliness)}%` }
+        style: { marginLeft: `${100 - Math.abs(friendliness)}%` },
       };
     }
   };
@@ -162,14 +162,15 @@ export default function ChatScreen() {
                   {message.content}
                 </div>
                 {message.role === "assistant" &&
-                  (message as ExtendedMessage).friendlinessChange !== undefined && (
+                  (message as ExtendedMessage).friendlinessChange !==
+                    undefined && (
                     <div className="text-sm text-muted-foreground mt-1">
                       Friendliness change:{" "}
-                      {(message as ExtendedMessage).friendlinessChange > 0
+                      {(message as ExtendedMessage).friendlinessChange ?? 0 > 0
                         ? `+${(message as ExtendedMessage).friendlinessChange}`
                         : (message as ExtendedMessage).friendlinessChange}
                     </div>
-                )}
+                  )}
               </motion.div>
             ))}
           </AnimatePresence>
