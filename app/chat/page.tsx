@@ -115,8 +115,34 @@ export default function ChatScreen() {
 
   const { barWidth, color, scale, style } = getFriendlinessDisplay();
 
+  const EmptyState = () => (
+    <div className="flex flex-col items-center justify-center h-full text-center p-8 space-y-4">
+      <div className="rounded-full bg-primary/10 p-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-8 w-8 text-primary"
+        >
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+      </div>
+      <h3 className="text-xl font-semibold">Start the Conversation</h3>
+      <p className="text-muted-foreground max-w-sm">
+        Begin your chat with {character?.name}. Your goal is to build a friendly
+        relationship through conversation.
+      </p>
+    </div>
+  );
+
   return (
-    <div className="container mx-auto p-4 flex flex-col md:flex-row h-screen gap-4">
+    <div className="container mx-auto p-8 flex flex-col md:flex-row h-screen gap-4">
       <div className="w-full md:w-3/4 flex flex-col h-full">
         <div className="mb-4">
           <Link href="/modes">
@@ -140,40 +166,45 @@ export default function ChatScreen() {
           </Link>
         </div>
         <div className="flex-1 overflow-y-auto mb-4 bg-background/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border">
-          <AnimatePresence>
-            {messages.map((message: ExtendedMessage, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className={`mb-4 ${
-                  message.role === "user" ? "text-right" : "text-left"
-                }`}
-              >
-                <div
-                  className={`inline-block p-3 rounded-2xl max-w-[80%] shadow-md ${
-                    message.role === "user"
-                      ? "bg-primary text-primary-foreground rounded-br-none"
-                      : "bg-secondary text-secondary-foreground rounded-bl-none"
+          {messages.length === 0 ? (
+            <EmptyState />
+          ) : (
+            <AnimatePresence>
+              {messages.map((message: ExtendedMessage, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className={`mb-4 ${
+                    message.role === "user" ? "text-right" : "text-left"
                   }`}
                 >
-                  {message.content}
-                </div>
-                {message.role === "assistant" &&
-                  (message as ExtendedMessage).friendlinessChange !==
-                    undefined && (
-                    <div className="text-sm text-muted-foreground mt-1">
-                      Friendliness change:{" "}
-                      {(message as ExtendedMessage).friendlinessChange ?? 0 > 0
-                        ? `+${(message as ExtendedMessage).friendlinessChange}`
-                        : (message as ExtendedMessage).friendlinessChange}
-                    </div>
-                  )}
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                  <div
+                    className={`inline-block p-3 rounded-2xl max-w-[80%] shadow-md ${
+                      message.role === "user"
+                        ? "bg-primary text-primary-foreground rounded-br-none"
+                        : "bg-secondary text-secondary-foreground rounded-bl-none"
+                    }`}
+                  >
+                    {message.content}
+                  </div>
+                  {message.role === "assistant" &&
+                    (message as ExtendedMessage).friendlinessChange !== undefined && (
+                      <div className="text-sm text-muted-foreground mt-1">
+                        Friendliness change:{" "}
+                        {(message as ExtendedMessage).friendlinessChange === 0
+                          ? "0"
+                          : (message as ExtendedMessage).friendlinessChange > 0
+                          ? `+${(message as ExtendedMessage).friendlinessChange}`
+                          : (message as ExtendedMessage).friendlinessChange}
+                      </div>
+                    )}
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          )}
           <div ref={messagesEndRef} />
         </div>
         <form onSubmit={handleSubmit} className="flex items-center gap-3">
@@ -196,7 +227,7 @@ export default function ChatScreen() {
       <div className="w-full md:w-1/4">
         {character && (
           <Card className="h-full flex flex-col bg-muted/50 backdrop-blur-sm border rounded-xl shadow-lg">
-            <CardHeader className="space-y-4 border-b bg-background/60 rounded-t-lg">
+            <CardHeader className="space-y-4 bg-background/60 rounded-t-lg">
               <div className="space-y-2">
                 <CardTitle className="flex items-center text-2xl gap-2">
                   {character.name}
