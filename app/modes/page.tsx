@@ -21,8 +21,7 @@ export default function Home() {
   const words = [
     {
       text: "SIMUCHAT",
-      className:
-        "text-7xl font-black tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-purple-500 animate-pulse",
+      className: "text-7xl font-black tracking-wider text-white",
     },
   ];
 

@@ -8,8 +8,7 @@ export default function LandingPage() {
   const words = [
     {
       text: "Welcome to SIMUCHAT",
-      className:
-        "bg-gradient-to-r from-purple-200 to-purple-600 bg-clip-text text-transparent font-black text-center",
+      className: "text-white font-black text-center",
     },
   ];
 
