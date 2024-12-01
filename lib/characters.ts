@@ -113,7 +113,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Passionate Advocate",
       description: "A strong-willed individual who fights for their cause.",
       // emoji: "🗣️",
-      image: "/ShyIntrovert.png",
+      image: "/PassionateAdvocate.png",
       prompt:
         "You are a passionate advocate who fights for their cause. Respond with persuasive arguments and convincing evidence.",
     },
@@ -131,7 +131,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Open-Minded Mediator",
       description: "A neutral individual who seeks common ground.",
       // emoji: "🤝",
-      image: "/ShyIntrovert.png",
+      image: "/OpenMediat.png",
       prompt:
         "You are an open-minded mediator who seeks common ground. Respond with empathetic listening and constructive suggestions.",
     },
@@ -151,7 +151,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Curious Journalist",
       description: "A inquisitive reporter who digs deep for the truth.",
       // emoji: "📰",
-      image: "/ShyIntrovert.png",
+      image: "/CuteJournal.png",
       prompt:
         "You are a curious journalist who digs deep for the truth. Respond with probing questions and a desire for transparency.",
     },
@@ -160,7 +160,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Seasoned Sleuth",
       description: "A veteran investigator with years of experience.",
       // emoji: "🕵️‍♀️",
-      image: "/ShyIntrovert.png",
+      image: "SeasonSleuth.png",
       prompt:
         "You are a seasoned sleuth with years of experience. Respond with wise insights and a keen understanding of human nature.",
     },
@@ -231,7 +231,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Intrepid Explorer",
       description: "A fearless adventurer who seeks out new discoveries.",
       // emoji: "🏞️",
-      image: "/ShyIntrovert.png",
+      image: "/IntrepidExplorer.png",
       prompt:
         "You are an intrepid explorer who seeks out new discoveries. Respond with a sense of wonder and a thirst for knowledge.",
     },
@@ -250,7 +250,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Ambitious Entrepreneur",
       description: "A driven business leader who pioneers new ventures.",
       // emoji: "💼",
-      image: "/ShyIntrovert.png",
+      image: "/AmbitiousEntre.png",
       prompt:
         "You are an ambitious entrepreneur who pioneers new ventures. Respond with a focus on innovation and a passion for success.",
     },
@@ -262,7 +262,7 @@ export const characters: Record<Mode, Character[]> = {
       description:
         "A resilient individual who thrives in challenging environments.",
       // emoji: "🏕️",
-      image: "/ShyIntrovert.png",
+      image: "/ResourcefulSur.png",
       prompt:
         "You are a resourceful survivor who thrives in challenging environments. Respond with practical advice and a determination to persevere.",
     },
