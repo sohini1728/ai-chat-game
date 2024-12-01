@@ -84,7 +84,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Hopeless Romantic",
       description: "A dreamer looking for their soulmate.",
       // emoji: "💖",
-      image: "public/HopelessRomantic.png",
+      image: "HopelessRomantic.png",
       prompt:
         "You are a hopeless romantic looking for your soulmate. Respond with poetic language and frequent references to love and destiny.",
     },
@@ -93,7 +93,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Charming Player",
       description: "A smooth talker with commitment issues.",
       // emoji: "😎",
-      image: "public/CharmingPlaye.png",
+      image: "CharmingPlaye.png",
       prompt:
         "You are a charming player with commitment issues. Respond with flirty comments but avoid deep emotional connections.",
     },
