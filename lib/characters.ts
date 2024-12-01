@@ -307,7 +307,7 @@ export const characters: Record<Mode, Character[]> = {
       prompt: "You are a curious journalist who uncovers secrets and reveals the truth. Respond with a sense of curiosity and a desire to expose the facts.",
     },
   ],
-  Dream: [
+  dream: [
     {
       id: "dreamweaver",
       name: "Dreamweaver",
