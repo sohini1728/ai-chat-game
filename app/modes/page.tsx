@@ -15,6 +15,7 @@ import {
   Zap,
   Book,
   BrainCircuit,
+  Moon,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -97,7 +98,7 @@ export default function ModesPage() {
       name: "Dream",
       description: "Enter the subconscious!",
       href: "/start?mode=dream",
-      icon: <BrainCircuit className="h-8 w-8" />,
+      icon: <Moon className="h-8 w-8" />,
     },
   ];
 
