@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { useChat, Message } from "ai/react";
 import {
   Card,
@@ -93,12 +95,51 @@ export default function ChatScreen() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const friendlinessColor = friendliness < 0 ? "bg-red-500" : "bg-green-500";
+  const getFriendlinessDisplay = () => {
+    if (friendliness >= 0) {
+      return {
+        barWidth: friendliness,
+        color: "bg-primary",
+        scale: "0 to 100",
+        style: { marginLeft: "0%" }
+      };
+    } else {
+      return {
+        barWidth: Math.abs(friendliness),
+        color: "bg-destructive",
+        scale: "-100 to 0",
+        style: { marginLeft: `${100 - Math.abs(friendliness)}%` }
+      };
+    }
+  };
+
+  const { barWidth, color, scale, style } = getFriendlinessDisplay();
 
   return (
     <div className="container mx-auto p-4 flex flex-col md:flex-row h-screen gap-4">
       <div className="w-full md:w-3/4 flex flex-col h-full">
-        <div className="flex-1 overflow-y-auto mb-4 bg-accent/50 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+        <div className="mb-4">
+          <Link href="/modes">
+            <Button variant="outline" className="mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="mr-2 h-4 w-4"
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              Back to Modes
+            </Button>
+          </Link>
+        </div>
+        <div className="flex-1 overflow-y-auto mb-4 bg-background/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border">
           <AnimatePresence>
             {messages.map((message: ExtendedMessage, index) => (
               <motion.div
@@ -141,13 +182,13 @@ export default function ChatScreen() {
           </AnimatePresence>
           <div ref={messagesEndRef} />
         </div>
-        <form onSubmit={handleSubmit} className="flex gap-3">
+        <form onSubmit={handleSubmit} className="flex items-center gap-3">
           <Input
             value={input}
             onChange={handleInputChange}
             placeholder="Type your message..."
             disabled={isLoading || currentTurn >= totalTurns}
-            className="text-lg p-6 rounded-xl"
+            className="text-lg p-6 rounded-2xl border-2 border-muted-foreground/20 focus:border-primary"
           />
           <Button
             type="submit"
@@ -160,36 +201,49 @@ export default function ChatScreen() {
       </div>
       <div className="w-full md:w-1/4">
         {character && (
-          <Card className="h-full flex flex-col border-2 rounded-xl shadow-lg">
-            <CardHeader className="space-y-2">
-              <CardTitle className="flex items-center text-2xl gap-2">
-                {/* <span className="text-4xl">{character.emoji}</span> */}
-                {character.name}
-              </CardTitle>
-              <CardDescription className="text-base">
-                {character.description}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow space-y-6">
+          <Card className="h-full flex flex-col bg-muted/50 backdrop-blur-sm border rounded-xl shadow-lg">
+            <CardHeader className="space-y-4 border-b bg-background/60 rounded-t-lg">
               <div className="space-y-2">
-                <h3 className="font-bold text-lg">Friendliness</h3>
-                <motion.div
-                  initial={{ width: "0%" }}
-                  animate={{ width: `${Math.abs(friendliness)}%` }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <Progress
-                    value={Math.abs(friendliness)}
-                    max={100}
-                    className={`h-3 ${friendlinessColor}`}
+                <CardTitle className="flex items-center text-2xl gap-2">
+                  {character.name}
+                </CardTitle>
+                <CardDescription className="text-base">
+                  {character.description}
+                </CardDescription>
+              </div>
+              {character.image && (
+                <div className="relative w-full aspect-square rounded-lg overflow-hidden">
+                  <Image
+                    src={character.image}
+                    alt={character.name}
+                    fill
+                    className="object-cover"
+                    priority
                   />
-                </motion.div>
-                <p className="mt-2 text-xl font-bold">
+                </div>
+              )}
+            </CardHeader>
+            <CardContent className="flex-grow space-y-6 pt-6 bg-background/60">
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <h3 className="font-bold text-lg">Friendliness</h3>
+                  <span className="text-sm text-muted-foreground">{scale}</span>
+                </div>
+                <div className="relative h-3 w-full bg-muted rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${barWidth}%` }}
+                    transition={{ duration: 0.5 }}
+                    className={`h-full ${color}`}
+                    style={style}
+                  />
+                </div>
+                <p className="mt-2 text-xl font-bold text-center">
                   {friendliness < 0 ? friendliness : `+${friendliness}`} / 100
                 </p>
               </div>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="border-t bg-background/60 rounded-b-lg pt-6">
               <div className="w-full space-y-2">
                 <h3 className="font-bold text-lg">Game Progress</h3>
                 <Progress

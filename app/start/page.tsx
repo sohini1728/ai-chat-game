@@ -41,7 +41,7 @@ export default function StartGame() {
       className="container max-w-5xl mx-auto px-4 py-8 space-y-6"
     >
       <div className="flex items-center justify-between mb-8">
-        <Link href="/">
+        <Link href="/modes">
           <Button variant="outline">
             <svg
               xmlns="http://www.w3.org/2000/svg"

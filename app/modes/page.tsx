@@ -105,7 +105,6 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-950 to-black text-white flex items-center justify-center p-4 overflow-hidden">
       <div className="max-w-6xl w-full space-y-12 relative">
         <div className="text-center space-y-6 relative">
-          <div className="absolute inset-0 bg-purple-500/20 blur-[100px] -z-10" />
           <TypewriterEffectSmooth
             words={words}
             className="flex justify-center items-center"
