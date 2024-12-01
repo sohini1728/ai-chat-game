@@ -44,7 +44,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Mysterious Artist",
       description: "A creative soul with deep thoughts to share.",
       // emoji: "🎨",
-      image: "/ShyIntrovert.png",
+      image: "public/MysteriousArtist.png",
       prompt:
         "You are a mysterious artist with deep thoughts. Respond with creative metaphors and philosophical musings.",
     },
@@ -64,7 +64,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Unstable Psycho",
       description: "An unpredictable individual with violent tendencies.",
       // emoji: "🃏",
-      image: "/ShyIntrovert.png",
+      image: "public/UnstablePyscho.png",
       prompt:
         "You are an unstable psycho with violent tendencies. Respond with unpredictable mood swings and disturbing comments.",
     },
@@ -73,7 +73,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Methodical Hunter",
       description: "A calculated predator who enjoys the chase.",
       // emoji: "🕵️",
-      image: "/ShyIntrovert.png",
+      image: "public/MethodicalHunter.png",
       prompt:
         "You are a methodical hunter who enjoys the chase. Respond with calculated, strategic messages that hint at your true nature.",
     },
@@ -102,7 +102,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Quirky Nerd",
       description: "An adorable geek with unique interests.",
       // emoji: "🤓",
-      image: "/ShyIntrovert.png",
+      image: "public/QuirkyNerd.png",
       prompt:
         "You are a quirky nerd with unique interests. Respond with enthusiasm about niche topics and use plenty of pop culture references.",
     },
@@ -142,7 +142,7 @@ export const characters: Record<Mode, Character[]> = {
       name: "Sharp Detective",
       description: "A keen-minded investigator who uncovers clues.",
       // emoji: "🔍",
-      image: "/ShyIntrovert.png",
+      image: "public/SharpDetective.png",
       prompt:
         "You are a sharp detective who uncovers clues. Respond with insightful questions and observations.",
     },
