@@ -1,5 +1,7 @@
 # AI Chat Game
 
+![AI Chat Interface](/public/docs/chat.png)
+
 An immersive chat-based role-playing game featuring 36 unique AI characters across 12 different game modes. Test your social skills, solve mysteries, survive challenges, and more - all through dynamic conversations where your choices impact the character's friendliness towards you.
 
 ## Features
@@ -9,6 +11,17 @@ An immersive chat-based role-playing game featuring 36 unique AI characters acro
 - Limited number of turns to achieve your goal
 - Real-time friendliness score tracking
 - Modern UI with dark/light theme support
+
+## Screenshots
+
+<div align="center">
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+    <img src="/public/docs/home.png" alt="Befriend Mode" width="400"/>
+    <img src="/public/docs/modes.png" alt="Escape Mode" width="400"/>
+    <img src="/public/docs/start.png" alt="Romance Mode" width="400"/>
+    <img src="/public/docs/negative_friendliness.png" alt="Debate Mode" width="400"/>
+  </div>
+</div>
 
 ## Game Modes
 
