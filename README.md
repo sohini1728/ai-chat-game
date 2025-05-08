@@ -1,6 +1,10 @@
-# AI Chat Game
+# AI Chat Game: Major Hackathon Winner
 
 ![AI Chat Interface](/public/docs/chat.png)
+[https://devpost.com/software/ai-chat-game
+](url)
+
+Team: Sohini, Danielle, Kevin, Praveen, Angel 
 
 An immersive chat-based role-playing game featuring 36 unique AI characters across 12 different game modes. Test your social skills, solve mysteries, survive challenges, and more - all through dynamic conversations where your choices impact the character's friendliness towards you.
 
